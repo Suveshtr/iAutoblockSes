@@ -5,6 +5,7 @@ const config = require('./config')
 var aws = require('aws-sdk')
 const fromemail = config.fromemail
 const toemail = config.toemail
+const ccemails = config.ccemails
 
 aws.config.loadFromPath(__dirname + '/config.json')
 // Instantiate SES.
@@ -33,8 +34,6 @@ app.post('/contactus', bodyParser.json(), (req, res) => {
   const { name, email, message } = req.body
 
   if (name && email) {    
-    console.log('name and email:', name, email)
-    
     
     var params = {
         
@@ -45,16 +44,12 @@ app.post('/contactus', bodyParser.json(), (req, res) => {
           Body: { 
             Html: {
               Charset: "UTF-8", 
-              Data: "Info requested by : " + sender + " " + senderEmail
+              Data: message
              },          
-           Text: {
-            Charset: "UTF-8", 
-            Data: message
-           }
           }, 
           Subject: {
            Charset: "UTF-8", 
-           Data: "iAutoblock Contactus message"
+           Data: "iAutoblock Contactus [ " + name + ", " + email + " ]"
           }
          },   
          Source: fromemail      
