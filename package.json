@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "\"# iAutoblockSes\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suveshtr/iAutoblockSes.git"
+  },
+  "author": "suvesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suveshtr/iAutoblockSes/issues"
+  },
+  "homepage": "https://github.com/Suveshtr/iAutoblockSes#readme"
+}
